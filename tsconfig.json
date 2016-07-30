@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "bin",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "noEmitOnError": false,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "exclude": [
+    "node_modules",
+    "bin"
+  ]
+}

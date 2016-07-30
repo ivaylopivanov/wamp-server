@@ -1,0 +1,11 @@
+bin/
+coverage/
+
+.vscode
+
+typings/
+
+*.log
+.DS_Store
+
+node_modules/

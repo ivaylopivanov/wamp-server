@@ -1,0 +1,48 @@
+{
+  "name": "wamp-server",
+  "version": "0.0.1",
+  "description": "WAMP Router Server",
+  "main": "index.js",
+  "author": "Ivaylo Ivanov <ivaylo.ivanov.ipi@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "wamp",
+    "server",
+    "publish",
+    "subscribe",
+    "rpc",
+    "router",
+    "dealer",
+    "broker",
+    "typescript"
+  ],
+  "scripts": {
+    "release": "node_modules/.bin/gulp release",
+    "build-tests": "node_modules/.bin/gulp build-tests",
+    "test": "npm run build-tests && node_modules/.bin/mocha ./test/**/*.js && npm run clean-tests",
+    "clean-tests": "node_modules/.bin/gulp clean",
+    "coverage": "npm run build-tests && istanbul cover node_modules/mocha/bin/_mocha ./test/**/*.js && npm run clean-tests",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "engines": {
+    "node": ">= 4.4.0"
+  },
+  "devDependencies": {
+    "autobahn": "^0.10.1",
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-jsbeautify": "^0.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.6",
+    "istanbul": "^0.4.4",
+    "mocha": "^2.5.3",
+    "run-sequence": "^1.2.2",
+    "tslint": "^3.13.0",
+    "typescript": "^1.8.10"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "ws": "^1.1.1"
+  }
+}

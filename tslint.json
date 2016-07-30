@@ -1,0 +1,25 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "semicolon": ["always"],
+    "quotemark": ["single"],
+    "indent": ["spaces"],
+    "eofline": true,
+    "use-strict": ["check-module", "check-function"],
+    "use-isnan": true,
+    "switch-default": true,
+    "interface-name": [],
+    "trailing-comma": {
+      "multiline": "always",
+      "singleline": "always"
+    },
+    "triple-equals": true,
+    "one-variable-per-declaration": true,
+    "max-line-length": [true, 80],
+    "member-ordering": [true,
+      "public-before-private",
+      "static-before-instance",
+      "variables-before-functions"
+    ]
+  }
+}
