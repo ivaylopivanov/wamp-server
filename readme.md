@@ -4,11 +4,11 @@
 [![Build Status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 
-# Implemented by following the [WAMP] (https://tools.ietf.org/html/draft-oberstet-hybi-tavendo-wamp-02) standards.
+# Implemented by following the [WAMP](https://tools.ietf.org/html/draft-oberstet-hybi-tavendo-wamp-02) standards.
 
-## Compatible with [Autobahn JS] (http://autobahn.ws/js/)
+## Compatible with [Autobahn JS](http://autobahn.ws/js/)
 
-## Currently only the [Basic Profile] (https://tools.ietf.org/html/draft-oberstet-hybi-tavendo-wamp-02#page-7) is implemented.
+## Currently only the [Basic Profile](https://tools.ietf.org/html/draft-oberstet-hybi-tavendo-wamp-02#page-7) is implemented.
  - hello
  - welcome
  - abort
@@ -31,10 +31,10 @@
  - yield
 
 ## Why
-The other two node [implementations] (http://wamp-proto.org/implementations/) have memory leaks.
+The other two node [implementations](http://wamp-proto.org/implementations/) have memory leaks.
 
 ## Note
-The current [source] (https://github.com/ivaylopivanov/wamp-server/tree/master/src) is written in [Typescript] (https://www.typescriptlang.org/) and the [release] (https://github.com/ivaylopivanov/wamp-server/tree/master/release) is the compiled javascript version. Once [ES6 modules] (http://www.ecma-international.org/ecma-262/6.0/#sec-imports) land in node, the only significant difference between the `src/` and the `release/` will be the types. At some point, the implementation may be moved to node completely.
+The current [source](https://github.com/ivaylopivanov/wamp-server/tree/master/src) is written in [Typescript](https://www.typescriptlang.org/) and the [release](https://github.com/ivaylopivanov/wamp-server/tree/master/release) is the compiled javascript version. Once [ES6 modules](http://www.ecma-international.org/ecma-262/6.0/#sec-imports) land in node, the only significant difference between the `src/` and the `release/` will be the types. At some point, the implementation may be moved to node completely.
 
 ## Usage
 
