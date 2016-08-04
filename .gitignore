@@ -1,4 +1,5 @@
 bin/
+example/*.js
 coverage/
 
 .vscode

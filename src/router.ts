@@ -35,6 +35,9 @@ export default class Router {
     case outgoingChannel.CALL:
       Handlers.call(session, message);
       return incomingChannel[message.type];
+    case outgoingChannel.ERROR:
+      Handlers.error(session, message);
+      return incomingChannel[message.type];
     case outgoingChannel.GOODBYE:
       Handlers.goodbye(session, message);
       return incomingChannel[message.type];

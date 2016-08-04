@@ -77,6 +77,33 @@ class Handlers {
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
    */
+  public static error(session: SessionInterface,
+                      message: SocketMessageInterface): void {
+    const KEY: number = message.incoming[2];
+    const SESSION_ID = Transactions.get(KEY);
+    const REALM: string = session.getRealm();
+    Transactions.delete(KEY);
+    let SESSION: SessionInterface;
+    SESSION = SessionManager.getSession(REALM, SESSION_ID);
+    if (SESSION) {
+      const ERROR: ErrorMessageInterface = {
+        args: message.incoming[5],
+        errorMessage:  message.incoming[4],
+        errorNumber: outgoingChannel.ERROR,
+        messageID: KEY,
+        requestTypeNumber: outgoingChannel.CALL,
+      };
+      return SESSION.error(message, ERROR);
+    }
+  }
+
+  /**
+   * 
+   * 
+   * @static
+   * @param {SessionInterface} session
+   * @param {SocketMessageInterface} message
+   */
   public static goodbye(session: SessionInterface,
                         message: SocketMessageInterface): void {
     session.send([

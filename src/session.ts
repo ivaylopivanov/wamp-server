@@ -206,7 +206,8 @@ class Session {
       error.requestTypeNumber,
       error.messageID,
       {},
-      error.errorMessage
+      error.errorMessage,
+      error.args
     ];
     this.send(ERROR_MESSAGE);
   }

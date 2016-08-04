@@ -31,6 +31,12 @@ export interface ErrorMessageInterface {
    * @type {number}
    */
   requestTypeNumber: number;
+  /**
+   * 
+   * 
+   * @type {any}
+   */
+  args?: any;
 }
 
 /**
