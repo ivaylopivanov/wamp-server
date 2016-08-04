@@ -7,13 +7,12 @@ let connection = new autobahn.Connection({
 
 connection.onopen = function (session) {
 
-  function onevent(args) {}
-  function addThree(args) {
-    return args[0] + args[1] + args[2];
-  }
+  session.register('com.myapp.thefuck', () => {})
 
-  session.register('com.myapp.addThree', addThree)
-  session.subscribe('com.myapp.event', onevent);
+  session.call('com.myapp.thefuck', [])
+    .catch(e => {
+      console.log('e', e);
+    });
 
 };
 
