@@ -14,7 +14,12 @@ gulp.task('build-dev', () => {
     .pipe(ts(tsProject));
 
   return result.js
-    .pipe(sourcemaps.write('./'))
+    .pipe(sourcemaps.write('./', {
+      includeContent: false,
+      mapSources: (sourcePath) => {
+        return '../../' + sourcePath;
+      }
+    }))
     .pipe(beautify({indent_size: 2}))
     .pipe(gulp.dest('bin'));
 });
