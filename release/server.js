@@ -15,26 +15,26 @@ class Server {
    * @param {OptionsInterface} options
    */
   constructor(options) {
-    this.options = options;
-    const REALMS = options.realms;
-    this.port = options.port;
-    this.wss = new ws_1.Server({
-      port: this.port
-    });
-    session_manager_1.default.registerRealms(Array.isArray(REALMS) ? REALMS : [REALMS]);
-    this.listen();
-  }
-  /**
-   *
-   */
+      this.options = options;
+      const REALMS = options.realms;
+      this.port = options.port;
+      this.wss = new ws_1.Server({
+        port: this.port
+      });
+      session_manager_1.default.registerRealms(Array.isArray(REALMS) ? REALMS : [REALMS]);
+      this.listen();
+    }
+    /**
+     *
+     */
   close() {
-    this.wss.close();
-  }
-  /**
-   *
-   *
-   * @private
-   */
+      this.wss.close();
+    }
+    /**
+     *
+     *
+     * @private
+     */
   listen() {
     DEBUG('listening on port %s', this.port);
     this.wss.on('connection', session_manager_1.default.createSession);

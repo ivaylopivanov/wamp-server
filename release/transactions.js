@@ -16,26 +16,26 @@ class Transaction {
    * @param {number} sessionID
    */
   static add(id, sessionID) {
-    DEBUG('setting transaction with ID: %s for sessionID: %s', id, sessionID);
-    transactions.set(id, sessionID);
-  }
-  /**
-   *
-   *
-   * @static
-   * @param {number} id
-   * @returns {number}
-   */
+      DEBUG('setting transaction with ID: %s for sessionID: %s', id, sessionID);
+      transactions.set(id, sessionID);
+    }
+    /**
+     *
+     *
+     * @static
+     * @param {number} id
+     * @returns {number}
+     */
   static get(id) {
-    DEBUG('getting transaction with ID: %s', id);
-    return transactions.get(id);
-  }
-  /**
-   *
-   *
-   * @static
-   * @param {number} id
-   */
+      DEBUG('getting transaction with ID: %s', id);
+      return transactions.get(id);
+    }
+    /**
+     *
+     *
+     * @static
+     * @param {number} id
+     */
   static delete(id) {
     DEBUG('deleting transaction with ID: %s', id);
     transactions.delete(id);

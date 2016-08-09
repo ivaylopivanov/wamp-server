@@ -28,6 +28,9 @@ class Router {
       case protocols_1.outgoingChannel.CALL:
         handlers_1.default.call(session, message);
         return protocols_1.incomingChannel[message.type];
+      case protocols_1.outgoingChannel.ERROR:
+        handlers_1.default.error(session, message);
+        return protocols_1.incomingChannel[message.type];
       case protocols_1.outgoingChannel.GOODBYE:
         handlers_1.default.goodbye(session, message);
         return protocols_1.incomingChannel[message.type];
