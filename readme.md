@@ -46,8 +46,8 @@ $ npm install wamp-server
 
 ```js
 'use strict';
-let server = require('wamp-server');
-const SERVER = new server({
+const WAMP_SERVER = require('wamp-server');
+const SERVER = new WAMP_SERVER({
   port: 8000,
   realms: ['com.example.inge'], // array or string
 });
