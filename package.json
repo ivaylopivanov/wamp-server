@@ -28,7 +28,7 @@
     "node": ">= 4.4.0"
   },
   "devDependencies": {
-    "autobahn": "^0.10.1",
+    "autobahn": "^0.11.2",
     "chai": "^3.5.0",
     "coveralls": "^2.11.12",
     "gulp": "^3.9.1",
