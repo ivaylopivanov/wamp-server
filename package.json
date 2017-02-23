@@ -4,6 +4,10 @@
   "description": "WAMP Router Server",
   "main": "index.js",
   "author": "Ivaylo Ivanov <ivaylo.ivanov.ipi@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ivaylopivanov/wamp-server"
+  },
   "license": "MIT",
   "keywords": [
     "wamp",
