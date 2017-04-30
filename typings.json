@@ -3,6 +3,7 @@
     "autobahn": "registry:dt/autobahn#0.9.6+20160711175132",
     "mocha": "registry:dt/mocha#2.2.5+20160720003353",
     "node": "registry:dt/node#6.0.0+20160709114037",
+    "when": "registry:dt/when#2.4.0+20161119044246",
     "ws": "registry:dt/ws#0.0.0+20160405094435"
   },
   "dependencies": {

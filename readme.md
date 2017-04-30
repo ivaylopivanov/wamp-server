@@ -58,12 +58,25 @@ const SERVER = new WAMP_SERVER({
 
 For debugging you can use the `DEBUG` variable - `DEBUG=wamp:*`
 
+## Contributing
+
+Any contribution will be highly appreciated
+
+## Development
+
+```bash
+$ npm install
+$ typings install
+$ npm run dev
+```
+
 ## Tests
 
   To run the test suite, first install the dependencies, then run `npm test`:
 
 ```bash
 $ npm install
+$ typings install
 $ npm test
 ```
 
