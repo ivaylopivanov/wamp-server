@@ -76,7 +76,6 @@ $ npm run dev
 
 ```bash
 $ npm install
-$ typings install
 $ npm test
 ```
 
