@@ -168,17 +168,15 @@ class Handlers {
     const INDEX: number = event.currentIndex;
     const SESSION: SessionInterface = event.subscription.sessions[INDEX];
     if (SESSION && INDEX < event.length) {
-      if (SESSION.getID() !== event.session.getID()) {
-        DEBUG('notifying sessionID: %s', SESSION.getID());
-        SESSION.send([
-          outgoingChannel.EVENT,
-          SESSION.getSubscriptionID(event.topic),
-          event.subscription.subscriptionID,
-          event.message.incoming[3],
-          event.message.incoming[4],
-          event.message.incoming[5],
-        ]);
-      }
+      DEBUG('notifying sessionID: %s', SESSION.getID());
+      SESSION.send([
+        outgoingChannel.EVENT,
+        SESSION.getSubscriptionID(event.topic),
+        event.subscription.subscriptionID,
+        event.message.incoming[3],
+        event.message.incoming[4],
+        event.message.incoming[5],
+      ]);
       event.currentIndex++;
       setImmediate(Handlers.notify, event);
     } else {
