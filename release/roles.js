@@ -1,7 +1,7 @@
 "use strict";
 const ROLES = {
   roles: {
-    brokder: {},
+    broker: {},
     dealer: {},
   }
 };

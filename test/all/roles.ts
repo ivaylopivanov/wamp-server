@@ -5,7 +5,7 @@ describe('roles', () => {
   it('Should match', () => {
     const ROLES = {
       roles: {
-        brokder: {},
+        broker: {},
         dealer: {},
       }
     };
