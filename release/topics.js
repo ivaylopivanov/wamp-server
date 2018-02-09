@@ -17,45 +17,45 @@ class Topics {
    * @returns {TopicInterface}
    */
   static get(realm, topic) {
-      return topics[realm][topic];
-    }
-    /**
-     *
-     *
-     * @static
-     * @param {string} realm
-     */
+    return topics[realm][topic];
+  }
+  /**
+   *
+   *
+   * @static
+   * @param {string} realm
+   */
   static registerRealm(realm) {
-      topics[realm] = {};
-    }
-    /**
-     *
-     *
-     * @static
-     * @param {string} realm
-     * @param {string} topic
-     * @param {number} subscriptionID
-     * @param {SessionInterface} session
-     */
+    topics[realm] = {};
+  }
+  /**
+   *
+   *
+   * @static
+   * @param {string} realm
+   * @param {string} topic
+   * @param {number} subscriptionID
+   * @param {SessionInterface} session
+   */
   static subscribe(realm, topic, subscriptionID, session) {
-      DEBUG('subscribing with id: %s, realm: %s, topic: %s, sessionID: %s', subscriptionID, realm, topic, session.getID());
-      if (!topics[realm][topic]) {
-        const TOPIC = {
-          sessions: [],
-          subscriptionID: subscriptionID,
-        };
-        topics[realm][topic] = TOPIC;
-      }
-      topics[realm][topic].sessions.push(session);
+    DEBUG('subscribing with id: %s, realm: %s, topic: %s, sessionID: %s', subscriptionID, realm, topic, session.getID());
+    if (!topics[realm][topic]) {
+      const TOPIC = {
+        sessions: [],
+        subscriptionID: subscriptionID,
+      };
+      topics[realm][topic] = TOPIC;
     }
-    /**
-     *
-     *
-     * @static
-     * @param {string} realm
-     * @param {string} topic
-     * @param {number} sessionID
-     */
+    topics[realm][topic].sessions.push(session);
+  }
+  /**
+   *
+   *
+   * @static
+   * @param {string} realm
+   * @param {string} topic
+   * @param {number} sessionID
+   */
   static unsubscribe(realm, topic, sessionID) {
     DEBUG('unsubscribing sessionID: %s for topic: %s', sessionID, topic);
     const SESSIONS = topics[realm][topic].sessions;
