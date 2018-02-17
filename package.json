@@ -1,6 +1,6 @@
 {
   "name": "wamp-server",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "WAMP Router Server",
   "main": "index.js",
   "author": "Ivaylo Ivanov <ivaylo.ivanov.ipi@gmail.com>",
