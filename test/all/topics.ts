@@ -4,6 +4,7 @@ import {
 } from '../../src/interfaces';
 import Session from '../../src/session';
 import Topics from '../../src/topics';
+import Request from '../mocks/request';
 import Socket from '../mocks/socket';
 import { expect } from 'chai';
 
@@ -15,14 +16,15 @@ describe('Topics', () => {
   });
 
   it('Should subscribe for topic', () => {
-    let realm = 'com.some.thing';
-    let topic = 'my.event';
-    let subscriptionID = 123456789012345;
+    const REALM = 'com.some.thing';
+    const TOPIC = 'my.event';
+    const SUB_ID = 123456789012345;
+    const IP = new Request().connection.remoteAddress;
 
-    let session: SessionInterface = new Session(new Socket());
-    let expected = Topics.subscribe(realm, topic, subscriptionID, session);
+    const SESSION: SessionInterface = new Session(new Socket(), IP);
+    const EXPECTED = Topics.subscribe(REALM, TOPIC, SUB_ID, SESSION);
 
-    expect(expected).to.be.undefined;
+    expect(EXPECTED).to.be.undefined;
   });
 
   it('Should get subscription', () => {

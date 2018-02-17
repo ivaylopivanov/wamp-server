@@ -3,11 +3,6 @@ import { EventEmitter } from 'events';
 
 class Socket extends EventEmitter implements SocketInterface {
 
-  public upgradeReq = {
-    connection: {
-      remoteAddress: ''
-    }
-  };
   public id = 0;
   public readyState = 0;
 

@@ -8,11 +8,11 @@ let connection = new autobahn.Connection({
 connection.onopen = function (session) {
 
   function onevent(args) {}
-  function addTwo(args) {
-    return args[0] + args[1];
+  function addThree(args) {
+    return args[0] + args[1] + args[2];
   }
 
-  session.register('com.myapp.addTwo', addTwo)
+  session.register('com.myapp.addThree', addThree)
   session.subscribe('com.myapp.event', onevent);
 
 };

@@ -4,6 +4,7 @@ import { incomingChannel } from '../../src/protocols';
 import Router from '../../src/router';
 import Session from '../../src/session';
 import SessionManager from '../../src/session-manager';
+import Request from '../mocks/request';
 import Socket from '../mocks/socket';
 import { expect } from 'chai';
 
@@ -19,8 +20,8 @@ describe('Router', () => {
 
   beforeEach(() => {
     SessionManager.registerRealms([realm]);
-    SessionManager.createSession(new Socket());
-    session = new Session(new Socket());
+    SessionManager.createSession(new Socket(), new Request());
+    session = new Session(new Socket(), new Request().connection.remoteAddress);
     session.setRealm(realm);
   });
 

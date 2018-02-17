@@ -29,8 +29,9 @@ class SessionManager {
    * @static
    * @param {SocketInterface} socket
    */
-  static createSession(socket) {
-    const SESSION = new session_1.default(socket);
+  static createSession(socket, req) {
+    const IP = req.connection.remoteAddress;
+    const SESSION = new session_1.default(socket, IP);
     DEBUG('creating session for ip: %s with id: %s', SESSION.getIP(), SESSION.getID());
   }
   /**

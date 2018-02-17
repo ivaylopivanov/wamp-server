@@ -54,10 +54,12 @@ function create(index) {
   connection.onopen = function (session) {
 
     if (index % 20 === 0) {
-      session.call('com.myapp.addTwo', [2, 3])
-        .catch(e => console.log(e));
-    } else {
       session.call('com.myapp.addThree', [2, 3, 4])
+        .then(r => console.assert(r === 9))
+        .catch(e => console.log(e));
+      } else {
+        session.call('com.myapp.addTwo', [2, 3])
+        .then(r => console.assert(r === 5))
         .catch(e => console.log(e));
     }
 

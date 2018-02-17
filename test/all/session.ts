@@ -2,12 +2,15 @@ import { SessionInterface } from '../../src/interfaces';
 import Session from '../../src/session';
 import SessionManager from '../../src/session-manager';
 import Topics from '../../src/topics';
+import Request from '../mocks/request';
 import Socket from '../mocks/socket';
 import { expect } from 'chai';
 
+let request = new Request();
 let socket = new Socket();
+const IP = request.connection.remoteAddress;
 socket.readyState = 1;
-let session: SessionInterface = new Session(socket);
+let session: SessionInterface = new Session(socket, IP);
 let subscriptionID = 123456789;
 let realm = 'com.some.session';
 
@@ -27,7 +30,7 @@ describe('Session', () => {
   });
 
   it('Should get an ip', () => {
-    expect(session.getIP()).equal(socket.upgradeReq.connection.remoteAddress);
+    expect(session.getIP()).equal(IP);
   });
 
   it('Should push procedures.ts', () => {

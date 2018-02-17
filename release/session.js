@@ -18,8 +18,9 @@ class Session {
    *
    * @param {SocketInterface} socket
    */
-  constructor(socket) {
+  constructor(socket, ip) {
     this.socket = socket;
+    this.ip = ip;
     /**
      *
      *
@@ -27,13 +28,6 @@ class Session {
      * @type {number}
      */
     this.id = util_1.makeID();
-    /**
-     *
-     *
-     * @private
-     * @type {number}
-     */
-    this.ip = this.socket.upgradeReq.connection.remoteAddress;
     /**
      *
      *

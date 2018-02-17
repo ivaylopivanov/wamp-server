@@ -1,5 +1,6 @@
 import Session from '../../src/session';
 import SessionManager from '../../src/session-manager';
+import Request from '../mocks/request';
 import Socket from '../mocks/socket';
 import { expect } from 'chai';
 
@@ -41,14 +42,16 @@ describe('SessionManager', () => {
   });
 
   it('Should create a session', () => {
-    expect(SessionManager.createSession(new Socket())).to.be.undefined;
+    const RESULT = SessionManager.createSession(new Socket(), new Request());
+    expect().to.be.undefined;
   });
 
   it('Should register a session', () => {
-    let realm = 'com.some.realm';
-    let session = new Session(new Socket());
-    id = session.getID();
-    expect(SessionManager.registerSession(realm, session)).to.be.undefined;
+    const REALM = 'com.some.realm';
+    const IP = new Request().connection.remoteAddress;
+    const SESSION = new Session(new Socket(), IP);
+    id = SESSION.getID();
+    expect(SessionManager.registerSession(REALM, SESSION)).to.be.undefined;
   });
 
   it('Should return 1 for the amount of registered sessions', () => {

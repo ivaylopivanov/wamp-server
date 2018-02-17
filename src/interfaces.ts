@@ -293,7 +293,7 @@ export interface SocketInterface extends EventEmitter {
    * 
    * @type {*}
    */
-  upgradeReq?: any;
+  connection?: any;
   /**
    * 
    * 

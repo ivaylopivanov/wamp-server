@@ -32,13 +32,6 @@ class Session {
    * 
    * 
    * @private
-   * @type {number}
-   */
-  private ip: number = this.socket.upgradeReq.connection.remoteAddress;
-  /**
-   * 
-   * 
-   * @private
    * @type {string[]}
    */
   private procedures: string[] = [];
@@ -62,7 +55,7 @@ class Session {
    * 
    * @param {SocketInterface} socket
    */
-  constructor(private socket: SocketInterface) {
+  constructor(private socket: SocketInterface, private ip: number) {
     this.addSocketEventListener();
   }
 
