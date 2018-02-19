@@ -230,6 +230,12 @@ export interface OptionsInterface {
   /**
    * 
    * 
+   * @type {string}
+   */
+  host?: string;
+  /**
+   * 
+   * 
    * @type {number}
    */
   port: number;

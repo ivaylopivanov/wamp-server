@@ -17,8 +17,10 @@ class Server {
   constructor(options) {
     this.options = options;
     const REALMS = options.realms;
+    this.host = options.host;
     this.port = options.port;
     this.wss = new ws_1.Server({
+      host: this.host,
       port: this.port
     });
     session_manager_1.default.registerRealms(Array.isArray(REALMS) ? REALMS : [REALMS]);
@@ -36,7 +38,7 @@ class Server {
    * @private
    */
   listen() {
-    DEBUG('listening on port %s', this.port);
+    DEBUG('listening on port %s (host: %s)', this.port, this.host);
     this.wss.on('connection', session_manager_1.default.createSession);
   }
 }
