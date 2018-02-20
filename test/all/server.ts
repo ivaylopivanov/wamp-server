@@ -5,6 +5,7 @@ describe('Server', () => {
 
   it('Should create a server for a single realm', () => {
     let server = new Server({
+      host: 'localhost',
       port: 7896,
       realms: 'com.some.server',
     });
@@ -14,6 +15,7 @@ describe('Server', () => {
 
   it('Should create a server for a multiple realms', () => {
     let server = new Server({
+      host: 'localhost',
       port: 7897,
       realms: ['com.some.server1', 'com.some.server2'],
     });
