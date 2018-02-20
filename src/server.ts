@@ -16,6 +16,14 @@ class Server {
    * 
    * 
    * @private
+   * @type {string}
+   */
+  private host: string;
+
+  /**
+   * 
+   * 
+   * @private
    * @type {number}
    */
   private port: number;
@@ -34,8 +42,9 @@ class Server {
    */
   constructor(private options: OptionsInterface) {
     const REALMS: string | string[] = options.realms;
+    this.host = options.host
     this.port = options.port;
-    this.wss = new WsServer({ port: this.port });
+    this.wss = new WsServer({ host: this.host, port: this.port });
     SessionManager.registerRealms(Array.isArray(REALMS) ? REALMS : [REALMS]);
     this.listen();
   }
@@ -53,7 +62,7 @@ class Server {
    * @private
    */
   private listen(): void {
-    DEBUG('listening on port %s', this.port);
+    DEBUG('listening on port %s (host: %s)', this.port, this.host);
     this.wss.on('connection', SessionManager.createSession);
   }
 
