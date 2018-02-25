@@ -1,5 +1,7 @@
 # WAMP Router Server
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ivaylopivanov/wamp-server.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
