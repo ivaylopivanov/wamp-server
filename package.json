@@ -24,7 +24,7 @@
     "build-tests": "node_modules/.bin/gulp build-tests",
     "clean-tests": "node_modules/.bin/gulp clean",
     "dev": "node_modules/.bin/gulp watch",
-    "coverage": "npm run build-tests && istanbul cover node_modules/mocha/bin/_mocha ./test/**/*.js && npm run clean-tests",
+    "coverage": "npm run build-tests && istanbul cover node_modules/mocha/bin/_mocha ./test/**/*.js --test && npm run clean-tests",
     "coveralls": "npm run build-tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "release": "node_modules/.bin/gulp release",
     "lint": "./node_modules/.bin/tslint --project tsconfig.json",
