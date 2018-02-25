@@ -1,10 +1,9 @@
 # WAMP Router Server
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ivaylopivanov/wamp-server.svg)](https://greenkeeper.io/)
-
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/ivaylopivanov/wamp-server.svg)](https://greenkeeper.io/)
 
 # Implemented by following the [WAMP](https://tools.ietf.org/html/draft-oberstet-hybi-tavendo-wamp-02) standards.
 

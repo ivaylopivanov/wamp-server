@@ -27,7 +27,7 @@ describe('wamp', function() {
 
   it('Should create two clients, make RPC and pub / sub', (done: Function) => {
 
-    createClient((clientOne: any) => {
+    createClient((clientOne: any, closeClientOne: Function) => {
       let subscription: any;
       let registration: any;
 
@@ -36,7 +36,6 @@ describe('wamp', function() {
         clientOne.unsubscribe(subscription)
           .then(() => {
             finished.unsubscribed = true;
-            onFinish(done);
           });
       };
 
@@ -45,7 +44,7 @@ describe('wamp', function() {
           clientOne.unregister(registration)
             .then(() => {
               finished.unregistered = true;
-              onFinish(done);
+              closeClientOne();
             });
         }, 1);
         finished.invocation = true;
@@ -63,19 +62,19 @@ describe('wamp', function() {
         });
 
 
-      createClient((clientTwo: any) => {
+      createClient((clientTwo: any, closeClientTwo: Function) => {
 
         clientTwo.call('com.test.add', [2, 3])
           .then((res: any) => {
             expect(res).equal(5);
             finished.yield = true;
-            onFinish(done);
+            onFinish(done, closeClientTwo);
           });
 
         clientTwo.publish('com.test.event', ['Hello!'], {}, {acknowledge: true})
           .then(() => {
             finished.ack = true;
-            onFinish(done);
+            onFinish(done, closeClientTwo);
           });
 
       });
@@ -92,18 +91,19 @@ let createClient = (callback: Function) => {
     url: 'ws://127.0.0.1:8000/',
   });
   connection.onopen = (session: any) => {
-    callback(session);
+    callback(session, () => connection.close());
   };
   connection.open();
 };
 
-let onFinish = (done: Function) => {
+let onFinish = (done: Function, close: Function) => {
   if (finished.ack &&
     finished.event &&
     finished.invocation &&
     finished.yield &&
     finished.unregistered &&
     finished.unsubscribed) {
+    close();
     done();
   }
 };

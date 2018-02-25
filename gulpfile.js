@@ -11,7 +11,7 @@ let tsProject = ts.createProject('tsconfig.json');
 gulp.task('build-dev', () => {
   let result = tsProject.src()
     .pipe(sourcemaps.init())
-    .pipe(ts(tsProject));
+    .pipe(ts(tsProject()));
 
   return result.js
     .pipe(sourcemaps.write('./', {
@@ -34,8 +34,8 @@ gulp.task('build-prod', () => {
 });
 
 gulp.task('build-tests', () => {
-  let result = tsProject.src('../test/**/*.ts')
-    .pipe(ts(tsProject, {}, ts.reporter.nullReporter()));
+  let result = tsProject.src()
+    .pipe(ts(tsProject(), ts.reporter.nullReporter()));
 
   return result.js
     .pipe(gulp.dest('./'));
