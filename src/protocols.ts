@@ -26,7 +26,7 @@ export const incomingChannel = {
   70: 'YIELD',
  };
 
- export const outgoingChannel = {
+export const outgoingChannel = {
   ABORT: 3,
   AUTHENTICATE: 5,
   CALL: 48,

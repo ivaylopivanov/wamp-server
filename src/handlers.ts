@@ -21,15 +21,15 @@ import * as Debug from 'debug';
 const DEBUG = Debug('wamp:handlers');
 
 /**
- * 
- * 
+ *
+ *
  * @class Handlers
  */
 class Handlers {
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    */
@@ -37,13 +37,13 @@ class Handlers {
     session.send([
       outgoingChannel.ABORT,
       errors.hello,
-      roles
+      roles,
     ]);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -71,8 +71,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -98,8 +98,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -109,14 +109,14 @@ class Handlers {
     session.send([
       outgoingChannel.GOODBYE,
       {},
-      errors.goodbye
+      errors.goodbye,
     ]);
     session.close();
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -135,8 +135,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -153,14 +153,14 @@ class Handlers {
       PROCEDURE_ID,
       DETAILS,
       ARGS,
-      KWARGS
+      KWARGS,
     ];
     session.send(RESPONSE);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {NotifyEvent} event
    */
@@ -179,7 +179,7 @@ class Handlers {
           event.subscription.subscriptionID,
           DETAILS,
           ARGS,
-          KWARGS
+          KWARGS,
         ]);
       }
       event.currentIndex++;
@@ -190,8 +190,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -205,8 +205,8 @@ class Handlers {
       const EVENT: NotifyEvent = {
         currentIndex: 0,
         length: LENGTH,
-        message: message,
-        session: session,
+        message,
+        session,
         subscription: SUBSCRIPTION,
         topic: TOPIC,
       };
@@ -215,8 +215,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -227,14 +227,14 @@ class Handlers {
       session.send([
         outgoingChannel.PUBLISHED,
         message.id,
-        makeID()
+        makeID(),
       ]);
     }
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -260,8 +260,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -273,13 +273,13 @@ class Handlers {
     session.send([
       outgoingChannel.REGISTERED,
       message.id,
-      procedureID
+      procedureID,
     ]);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -290,13 +290,13 @@ class Handlers {
       outgoingChannel.RESULT,
       message.id,
       {},
-      message.incoming[3]
+      message.incoming[3],
     ]);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -322,8 +322,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -333,13 +333,13 @@ class Handlers {
     session.send([
       outgoingChannel.SUBSCRIBED,
       message.id,
-      message.incoming[3]
+      message.incoming[3],
     ]);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -365,8 +365,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -380,8 +380,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -400,8 +400,8 @@ class Handlers {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message
@@ -410,13 +410,13 @@ class Handlers {
                              message: SocketMessageInterface): void {
     session.send([
       outgoingChannel.UNSUBSCRIBED,
-      message.id
+      message.id,
     ]);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    */
@@ -424,13 +424,13 @@ class Handlers {
     session.send([
       outgoingChannel.WELCOME,
       session.getID(),
-      roles
+      roles,
     ]);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message

@@ -1,24 +1,24 @@
+import * as Debug from 'debug';
 import Handlers from './handlers';
 import {
   SessionInterface,
   SocketMessageInterface,
 } from './interfaces';
 import { incomingChannel, outgoingChannel } from './protocols';
-import * as Debug from 'debug';
 
 const DEBUG = Debug('wamp:router');
 
 /**
- * 
- * 
+ *
+ *
  * @export
  * @class Router
  */
 export default class Router {
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SessionInterface} session
    * @param {SocketMessageInterface} message

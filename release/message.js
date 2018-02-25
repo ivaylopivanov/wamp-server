@@ -1,4 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /**
  *
  *
@@ -30,7 +33,7 @@ class Message {
    */
   serialize(incomingMessage) {
     this.message = {
-      incoming: this.parseMessage(incomingMessage)
+      incoming: this.parseMessage(incomingMessage),
     };
     this.setMessageType(this.message);
     this.setMessageID(this.message);
@@ -68,7 +71,4 @@ class Message {
     message.id = message.incoming[1];
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Message;

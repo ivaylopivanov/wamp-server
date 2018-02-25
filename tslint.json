@@ -1,25 +1,18 @@
 {
   "extends": "tslint:latest",
   "rules": {
-    "semicolon": ["always"],
-    "quotemark": ["single"],
-    "indent": ["spaces"],
+    "semicolon": true,
+    "quotemark": [true, "single"],
+    "indent": [true, "spaces"],
+    "interface-name": [true, "never-prefix"],
     "eofline": true,
     "use-strict": ["check-module", "check-function"],
     "use-isnan": true,
     "switch-default": true,
-    "interface-name": [],
-    "trailing-comma": {
-      "multiline": "always",
-      "singleline": "always"
-    },
+    "no-implicit-dependencies": [true, "dev"],
     "triple-equals": true,
+    "no-empty-interface": false,
     "one-variable-per-declaration": true,
-    "max-line-length": [true, 80],
-    "member-ordering": [true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
-    ]
+    "max-line-length": [true, 80]
   }
 }

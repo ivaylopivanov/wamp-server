@@ -1,16 +1,16 @@
 import { SocketMessageInterface } from './interfaces';
 
 /**
- * 
- * 
+ *
+ *
  * @export
  * @class Message
  */
 export default class Message {
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {SocketMessageInterface}
    */
@@ -18,7 +18,7 @@ export default class Message {
 
   /**
    * Creates an instance of Message.
-   * 
+   *
    * @param {string} incomingMessage
    */
   constructor(incomingMessage: string) {
@@ -26,8 +26,8 @@ export default class Message {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @returns {SocketMessageInterface}
    */
   public getMessage(): SocketMessageInterface {
@@ -35,22 +35,22 @@ export default class Message {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @param {string} incomingMessage
    */
   private serialize(incomingMessage: string) {
     this.message = {
-      incoming: this.parseMessage(incomingMessage)
+      incoming: this.parseMessage(incomingMessage),
     };
     this.setMessageType(this.message);
     this.setMessageID(this.message);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @param {string} message
    * @returns {any[]}
@@ -64,8 +64,8 @@ export default class Message {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @param {SocketMessageInterface} message
    */
@@ -74,8 +74,8 @@ export default class Message {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @param {SocketMessageInterface} message
    */

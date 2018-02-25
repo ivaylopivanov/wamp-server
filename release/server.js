@@ -1,7 +1,10 @@
 "use strict";
-const session_manager_1 = require('./session-manager');
-const Debug = require('debug');
-const ws_1 = require('ws');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
+const ws_1 = require("ws");
+const session_manager_1 = require("./session-manager");
 const DEBUG = Debug('wamp:server');
 /**
  *
@@ -40,7 +43,4 @@ class Server {
     this.wss.on('connection', session_manager_1.default.createSession);
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Server;

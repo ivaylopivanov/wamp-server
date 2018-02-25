@@ -1,28 +1,28 @@
+import * as Debug from 'debug';
 import errors from './errors';
 import {
   MapInterface,
   SessionInterface,
   SocketInterface,
-} from './interfaces.ts';
+} from './interfaces';
 import Procedures from './procedures';
 import Session from './session';
 import Topics from './topics';
 import { isValidRealm } from './util';
-import * as Debug from 'debug';
 
 const DEBUG = Debug('wamp:session-manager');
-let containers = new Map();
+const containers = new Map();
 
 /**
- * 
- * 
+ *
+ *
  * @class SessionManager
  */
 class SessionManager {
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @returns {boolean}
@@ -32,8 +32,8 @@ class SessionManager {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {SocketInterface} socket
    */
@@ -46,8 +46,8 @@ class SessionManager {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {number} id
@@ -62,8 +62,8 @@ class SessionManager {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {SessionInterface} session
@@ -78,8 +78,8 @@ class SessionManager {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {number} id
@@ -90,8 +90,8 @@ class SessionManager {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @returns {number}
@@ -101,13 +101,13 @@ class SessionManager {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string[]} realms
    */
   public static registerRealms(realms: string[]): void {
-    realms.forEach(realm => {
+    realms.forEach((realm) => {
       DEBUG(`registering realm: ${realm}`);
       if (isValidRealm(realm)) {
         containers.set(realm, new Map());

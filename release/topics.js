@@ -1,7 +1,10 @@
 "use strict";
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
 const DEBUG = Debug('wamp:topics');
-let topics = {};
+const topics = {};
 /**
  *
  *
@@ -42,7 +45,7 @@ class Topics {
     if (!topics[realm][topic]) {
       const TOPIC = {
         sessions: [],
-        subscriptionID: subscriptionID,
+        subscriptionID,
       };
       topics[realm][topic] = TOPIC;
     }
@@ -68,7 +71,4 @@ class Topics {
     }
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Topics;

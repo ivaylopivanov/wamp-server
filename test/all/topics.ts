@@ -1,3 +1,4 @@
+import { expect } from 'chai';
 import {
   SessionInterface,
   TopicInterface,
@@ -6,13 +7,12 @@ import Session from '../../src/session';
 import Topics from '../../src/topics';
 import Request from '../mocks/request';
 import Socket from '../mocks/socket';
-import { expect } from 'chai';
 
 describe('Topics', () => {
 
   it('Should register realm', () => {
-    let realm = 'com.some.thing';
-    expect(Topics.registerRealm(realm)).to.be.undefined;
+    const realm = 'com.some.thing';
+    expect(Topics.registerRealm(realm)).to.be.a('undefined');
   });
 
   it('Should subscribe for topic', () => {
@@ -24,14 +24,14 @@ describe('Topics', () => {
     const SESSION: SessionInterface = new Session(new Socket(), IP);
     const EXPECTED = Topics.subscribe(REALM, TOPIC, SUB_ID, SESSION);
 
-    expect(EXPECTED).to.be.undefined;
+    expect(EXPECTED).to.be.a('undefined');
   });
 
   it('Should get subscription', () => {
-    let realm = 'com.some.thing';
-    let topic = 'my.event';
+    const realm = 'com.some.thing';
+    const topic = 'my.event';
 
-    let subscription: TopicInterface = Topics.get(realm, topic);
+    const subscription: TopicInterface = Topics.get(realm, topic);
 
     expect(subscription).to.has.property('subscriptionID');
     expect(subscription).to.has.property('sessions');
@@ -40,21 +40,22 @@ describe('Topics', () => {
   });
 
   it('Should not fail if try to unsubscribe not existing session', () => {
-    let realm = 'com.some.thing';
-    let topic = 'my.event';
+    const realm = 'com.some.thing';
+    const topic = 'my.event';
 
-    expect(Topics.unsubscribe(realm, topic, undefined)).to.be.undefined;
+    expect(Topics.unsubscribe(realm, topic, undefined)).to.be.a('undefined');
   });
 
   it('Should unsubscribe', () => {
-    let realm = 'com.some.thing';
-    let topic = 'my.event';
+    const realm = 'com.some.thing';
+    const topic = 'my.event';
 
-    let subscriptionBefore: TopicInterface = Topics.get(realm, topic);
-    let session: SessionInterface = subscriptionBefore.sessions[0];
-    expect(Topics.unsubscribe(realm, topic, session.getID())).to.be.undefined;
+    const subscriptionBefore: TopicInterface = Topics.get(realm, topic);
+    const session: SessionInterface = subscriptionBefore.sessions[0];
+    // tslint:disable-next-line:max-line-length
+    expect(Topics.unsubscribe(realm, topic, session.getID())).to.be.a('undefined');
 
-    let subscriptionAfter: TopicInterface = Topics.get(realm, topic);
+    const subscriptionAfter: TopicInterface = Topics.get(realm, topic);
     expect(subscriptionAfter).to.has.property('subscriptionID');
     expect(subscriptionAfter).to.has.property('sessions');
     expect(subscriptionAfter.sessions).to.be.a('array');

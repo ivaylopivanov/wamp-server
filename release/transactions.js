@@ -1,7 +1,10 @@
 "use strict";
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
 const DEBUG = Debug('wamp:transactions');
-let transactions = new Map();
+const transactions = new Map();
 /**
  *
  *
@@ -41,7 +44,4 @@ class Transaction {
     transactions.delete(id);
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Transaction;

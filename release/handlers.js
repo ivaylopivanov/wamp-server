@@ -1,13 +1,16 @@
 "use strict";
-const errors_1 = require('./errors');
-const procedures_1 = require('./procedures');
-const protocols_1 = require('./protocols');
-const roles_1 = require('./roles');
-const session_manager_1 = require('./session-manager');
-const topics_1 = require('./topics');
-const transactions_1 = require('./transactions');
-const util_1 = require('./util');
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const errors_1 = require("./errors");
+const procedures_1 = require("./procedures");
+const protocols_1 = require("./protocols");
+const roles_1 = require("./roles");
+const session_manager_1 = require("./session-manager");
+const topics_1 = require("./topics");
+const transactions_1 = require("./transactions");
+const util_1 = require("./util");
+const Debug = require("debug");
 const DEBUG = Debug('wamp:handlers');
 /**
  *
@@ -25,7 +28,7 @@ class Handlers {
     session.send([
       protocols_1.outgoingChannel.ABORT,
       errors_1.default.hello,
-      roles_1.default
+      roles_1.default,
     ]);
   }
   /**
@@ -91,7 +94,7 @@ class Handlers {
     session.send([
       protocols_1.outgoingChannel.GOODBYE,
       {},
-      errors_1.default.goodbye
+      errors_1.default.goodbye,
     ]);
     session.close();
   }
@@ -131,7 +134,7 @@ class Handlers {
       PROCEDURE_ID,
       DETAILS,
       ARGS,
-      KWARGS
+      KWARGS,
     ];
     session.send(RESPONSE);
   }
@@ -158,7 +161,7 @@ class Handlers {
           event.subscription.subscriptionID,
           DETAILS,
           ARGS,
-          KWARGS
+          KWARGS,
         ]);
       }
       event.currentIndex++;
@@ -182,8 +185,8 @@ class Handlers {
       const EVENT = {
         currentIndex: 0,
         length: LENGTH,
-        message: message,
-        session: session,
+        message,
+        session,
         subscription: SUBSCRIPTION,
         topic: TOPIC,
       };
@@ -202,7 +205,7 @@ class Handlers {
       session.send([
         protocols_1.outgoingChannel.PUBLISHED,
         message.id,
-        util_1.makeID()
+        util_1.makeID(),
       ]);
     }
   }
@@ -243,7 +246,7 @@ class Handlers {
     session.send([
       protocols_1.outgoingChannel.REGISTERED,
       message.id,
-      procedureID
+      procedureID,
     ]);
   }
   /**
@@ -258,7 +261,7 @@ class Handlers {
       protocols_1.outgoingChannel.RESULT,
       message.id,
       {},
-      message.incoming[3]
+      message.incoming[3],
     ]);
   }
   /**
@@ -297,7 +300,7 @@ class Handlers {
     session.send([
       protocols_1.outgoingChannel.SUBSCRIBED,
       message.id,
-      message.incoming[3]
+      message.incoming[3],
     ]);
   }
   /**
@@ -364,7 +367,7 @@ class Handlers {
   static unsubscribed(session, message) {
     session.send([
       protocols_1.outgoingChannel.UNSUBSCRIBED,
-      message.id
+      message.id,
     ]);
   }
   /**
@@ -377,7 +380,7 @@ class Handlers {
     session.send([
       protocols_1.outgoingChannel.WELCOME,
       session.getID(),
-      roles_1.default
+      roles_1.default,
     ]);
   }
   /**
@@ -399,7 +402,4 @@ class Handlers {
     }
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Handlers;

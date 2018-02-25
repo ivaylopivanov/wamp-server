@@ -1,4 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 const ERRORS = {
   general: 'wamp.errors.invalid_argument',
   goodbye: 'wamp.error.goodbye_and_out',
@@ -8,7 +11,4 @@ const ERRORS = {
   unregister: 'wamp.error.no_such_registration',
   uri: 'wamp.error.invalid_uri',
 };
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = ERRORS;

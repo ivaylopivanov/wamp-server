@@ -1,27 +1,27 @@
-import { OptionsInterface } from './interfaces';
-import SessionManager from './session-manager';
 import * as Debug from 'debug';
 import { Server as WsServer } from 'ws';
+import { OptionsInterface } from './interfaces';
+import SessionManager from './session-manager';
 
 const DEBUG = Debug('wamp:server');
 
 /**
- * 
- * 
+ *
+ *
  * @class Server
  */
 class Server {
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {number}
    */
   private port: number;
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {(any | WsServer)}
    */
@@ -29,7 +29,7 @@ class Server {
 
   /**
    * Creates an instance of Server.
-   * 
+   *
    * @param {OptionsInterface} options
    */
   constructor(private options: OptionsInterface) {
@@ -41,15 +41,15 @@ class Server {
   }
 
   /**
-   * 
+   *
    */
   public close(): void {
     this.wss.close();
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    */
   private listen(): void {

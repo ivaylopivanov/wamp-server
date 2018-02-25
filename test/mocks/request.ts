@@ -1,7 +1,7 @@
 class Request {
 
   public connection = {
-    remoteAddress: '::ffff:127.0.0.1'
+    remoteAddress: '::ffff:127.0.0.1',
   };
 
 }

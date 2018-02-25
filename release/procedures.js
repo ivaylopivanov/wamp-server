@@ -1,7 +1,10 @@
 "use strict";
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
 const DEBUG = Debug('wamp:procedure');
-let procedures = {};
+const procedures = {};
 class Procedures {
   /**
    *
@@ -26,9 +29,9 @@ class Procedures {
     DEBUG('procedure id: %s', procedureID);
     DEBUG('session id: %s', sessionID);
     const PROCEDURE = {
-      procedureID: procedureID,
-      sessionID: sessionID,
-      uri: uri,
+      procedureID,
+      sessionID,
+      uri,
     };
     procedures[realm][uri] = PROCEDURE;
   }
@@ -86,7 +89,4 @@ class Procedures {
     return Procedures.get(realm, uri) ? false : true;
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Procedures;

@@ -1,5 +1,5 @@
-import errors from '../../src/errors';
 import { expect } from 'chai';
+import errors from '../../src/errors';
 
 describe('errors', () => {
   it('Should have 7 different types of errors', () => {

@@ -1,4 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.incomingChannel = {
   1: 'HELLO',
   2: 'WELCOME',

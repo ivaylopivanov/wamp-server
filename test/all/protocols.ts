@@ -1,5 +1,5 @@
-import { incomingChannel, outgoingChannel} from '../../src/protocols';
 import { expect } from 'chai';
+import { incomingChannel, outgoingChannel} from '../../src/protocols';
 
 describe('protocols', () => {
   it('Should match incomingChannel', () => {

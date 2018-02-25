@@ -1,22 +1,22 @@
+import * as Debug from 'debug';
 import {
   SessionInterface,
   TopicInterface,
-} from './interfaces.ts';
-import * as Debug from 'debug';
+} from './interfaces';
 
 const DEBUG = Debug('wamp:topics');
-let topics = {};
+const topics = {};
 
 /**
- * 
- * 
+ *
+ *
  * @class Topics
  */
 class Topics {
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} topic
@@ -27,8 +27,8 @@ class Topics {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    */
@@ -37,8 +37,8 @@ class Topics {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} topic
@@ -57,7 +57,7 @@ class Topics {
     if (!topics[realm][topic]) {
       const TOPIC: TopicInterface = {
         sessions: [],
-        subscriptionID: subscriptionID,
+        subscriptionID,
       };
       topics[realm][topic] = TOPIC;
     }
@@ -65,8 +65,8 @@ class Topics {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} topic

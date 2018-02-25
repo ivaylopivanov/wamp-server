@@ -1,21 +1,21 @@
-import {
-  MapInterface
-} from './interfaces';
 import * as Debug from 'debug';
+import {
+  MapInterface,
+} from './interfaces';
 
 const DEBUG = Debug('wamp:transactions');
-let transactions: MapInterface = new Map();
+const transactions: MapInterface = new Map();
 
 /**
- * 
- * 
+ *
+ *
  * @class Transaction
  */
 class Transaction {
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {number} id
    * @param {number} sessionID
@@ -26,8 +26,8 @@ class Transaction {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {number} id
    * @returns {number}
@@ -38,8 +38,8 @@ class Transaction {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {number} id
    */

@@ -1,5 +1,5 @@
-import roles from '../../src/roles';
 import { expect } from 'chai';
+import roles from '../../src/roles';
 
 describe('roles', () => {
   it('Should match', () => {
@@ -7,7 +7,7 @@ describe('roles', () => {
       roles: {
         broker: {},
         dealer: {},
-      }
+      },
     };
     expect(ROLES).deep.equal(roles);
   });

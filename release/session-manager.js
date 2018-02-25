@@ -1,12 +1,15 @@
 "use strict";
-const errors_1 = require('./errors');
-const procedures_1 = require('./procedures');
-const session_1 = require('./session');
-const topics_1 = require('./topics');
-const util_1 = require('./util');
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
+const errors_1 = require("./errors");
+const procedures_1 = require("./procedures");
+const session_1 = require("./session");
+const topics_1 = require("./topics");
+const util_1 = require("./util");
 const DEBUG = Debug('wamp:session-manager');
-let containers = new Map();
+const containers = new Map();
 /**
  *
  *
@@ -89,7 +92,7 @@ class SessionManager {
    * @param {string[]} realms
    */
   static registerRealms(realms) {
-    realms.forEach(realm => {
+    realms.forEach((realm) => {
       DEBUG(`registering realm: ${realm}`);
       if (util_1.isValidRealm(realm)) {
         containers.set(realm, new Map());
@@ -101,7 +104,4 @@ class SessionManager {
     });
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = SessionManager;

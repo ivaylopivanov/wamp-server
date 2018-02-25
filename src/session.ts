@@ -1,3 +1,4 @@
+import * as Debug from 'debug';
 import {
   ErrorMessageInterface,
   SocketInterface,
@@ -10,41 +11,40 @@ import Router from './router';
 import SessionManager from './session-manager';
 import Topics from './topics';
 import { makeID } from './util';
-import * as Debug from 'debug';
 
 const DEBUG = Debug('wamp:session');
 
 /**
- * 
- * 
+ *
+ *
  * @class Session
  */
 class Session {
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {number}
    */
   private id: number = makeID();
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {string[]}
    */
   private procedures: string[] = [];
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {string}
    */
   private realm: string;
   /**
-   * 
-   * 
+   *
+   *
    * @private
    * @type {SubscriptionInterface[]}
    */
@@ -52,16 +52,16 @@ class Session {
 
   /**
    * Creates an instance of Session.
-   * 
+   *
    * @param {SocketInterface} socket
    */
-  constructor(private socket: SocketInterface, private ip: number) {
+  constructor(private socket: SocketInterface, private ip: string) {
     this.addSocketEventListener();
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {string} realm
    */
   public setRealm(realm: string): void {
@@ -69,8 +69,8 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @returns {string}
    */
   public getRealm(): string {
@@ -78,17 +78,17 @@ class Session {
   }
 
   /**
-   * 
-   * 
-   * @returns {number}
+   *
+   *
+   * @returns {string}
    */
-  public getIP(): number {
+  public getIP(): string {
     return this.ip;
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @returns {number}
    */
   public getID(): number {
@@ -96,8 +96,8 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {string} uri
    */
   public pushProcedure(uri: string): void {
@@ -105,8 +105,8 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {string} uri
    */
   public removeProcedure(uri: string): void {
@@ -121,7 +121,7 @@ class Session {
   }
 
   /**
-   * 
+   *
    */
   public removeProcedures(): void {
     const LENGTH: number = this.procedures.length;
@@ -131,21 +131,21 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {number} subscriptionID
    * @param {string} topic
    */
   public pushSubscription(subscriptionID: number, topic: string): void {
     this.subscriptions.push({
-      subscriptionID: subscriptionID,
-      topic: topic
+      subscriptionID,
+      topic,
     });
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {number} subscriptionID
    * @returns {SubscriptionInterface}
    */
@@ -162,7 +162,7 @@ class Session {
   }
 
   /**
-   * 
+   *
    */
   public removeSubscriptions(): void {
     const LENGTH: number = this.subscriptions.length;
@@ -172,8 +172,8 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {string} topic
    * @returns {number}
    */
@@ -187,8 +187,8 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {SocketMessageInterface} messae
    * @param {ErrorMessageInterface} error
    */
@@ -200,14 +200,14 @@ class Session {
       error.messageID,
       {},
       error.errorMessage,
-      error.args
+      error.args,
     ];
     this.send(ERROR_MESSAGE);
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @param {any[]} message
    */
   public send(message: any[]): void {
@@ -219,7 +219,7 @@ class Session {
   }
 
   /**
-   * 
+   *
    */
   public close(): void {
     DEBUG('cleaning...');
@@ -230,8 +230,8 @@ class Session {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @private
    */
   private addSocketEventListener(): void {

@@ -1,11 +1,14 @@
 "use strict";
-const message_1 = require('./message');
-const procedures_1 = require('./procedures');
-const router_1 = require('./router');
-const session_manager_1 = require('./session-manager');
-const topics_1 = require('./topics');
-const util_1 = require('./util');
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
+const message_1 = require("./message");
+const procedures_1 = require("./procedures");
+const router_1 = require("./router");
+const session_manager_1 = require("./session-manager");
+const topics_1 = require("./topics");
+const util_1 = require("./util");
 const DEBUG = Debug('wamp:session');
 /**
  *
@@ -63,7 +66,7 @@ class Session {
   /**
    *
    *
-   * @returns {number}
+   * @returns {string}
    */
   getIP() {
     return this.ip;
@@ -116,8 +119,8 @@ class Session {
    */
   pushSubscription(subscriptionID, topic) {
     this.subscriptions.push({
-      subscriptionID: subscriptionID,
-      topic: topic
+      subscriptionID,
+      topic,
     });
   }
   /**
@@ -173,7 +176,7 @@ class Session {
       error.messageID,
       {},
       error.errorMessage,
-      error.args
+      error.args,
     ];
     this.send(ERROR_MESSAGE);
   }
@@ -217,7 +220,4 @@ class Session {
     });
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Session;

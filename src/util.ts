@@ -1,16 +1,16 @@
 /**
- * 
- * 
+ *
+ *
  * @export
  * @returns {number}
  */
 export function makeID(): number {
   return Math.floor(Math.random() * 9007199254740992); // 2^53
-};
+}
 
 /**
- * 
- * 
+ *
+ *
  * @export
  * @param {string} realm
  * @returns {boolean}

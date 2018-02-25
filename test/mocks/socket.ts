@@ -1,5 +1,5 @@
-import { SocketInterface } from '../../src/interfaces';
 import { EventEmitter } from 'events';
+import { SocketInterface } from '../../src/interfaces';
 
 class Socket extends EventEmitter implements SocketInterface {
 
@@ -10,8 +10,13 @@ class Socket extends EventEmitter implements SocketInterface {
     super();
   }
 
-  public close() {}
-  public send() {}
+  public close() {
+    // ...
+  }
+  public send() {
+    // ...
+  }
+
 }
 
 export default Socket;

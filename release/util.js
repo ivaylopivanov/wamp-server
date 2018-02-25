@@ -1,4 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 /**
  *
  *
@@ -8,7 +11,7 @@
 function makeID() {
   return Math.floor(Math.random() * 9007199254740992); // 2^53
 }
-exports.makeID = makeID;;
+exports.makeID = makeID;
 /**
  *
  *

@@ -1,9 +1,9 @@
-import Server from '../../src/server';
 import { Connection } from 'autobahn';
 import { expect } from 'chai';
+import Server from '../../src/server';
 
 let server: Server;
-let finished: any = {
+const finished: any = {
   ack: false,
   event: false,
   invocation: false,
@@ -25,13 +25,14 @@ describe('wamp', function() {
 
   afterEach(() => server.close());
 
-  it('Should create two clients, make RPC and pub / sub', (done: Function) => {
+  // tslint:disable-next-line:max-line-length
+  it('Should create two clients, make RPC and pub / sub', (done: () => void) => {
 
-    createClient((clientOne: any, closeClientOne: Function) => {
+    createClient((clientOne: any, closeClientOne: () => void) => {
       let subscription: any;
       let registration: any;
 
-      let onevent = (args: any) => {
+      const onevent = (args: any) => {
         finished.event = true;
         clientOne.unsubscribe(subscription)
           .then(() => {
@@ -39,7 +40,7 @@ describe('wamp', function() {
           });
       };
 
-      let add = (args: any) => {
+      const add = (args: any) => {
         setTimeout(() => {
           clientOne.unregister(registration)
             .then(() => {
@@ -61,8 +62,7 @@ describe('wamp', function() {
           registration = res;
         });
 
-
-      createClient((clientTwo: any, closeClientTwo: Function) => {
+      createClient((clientTwo: any, closeClientTwo: () => void) => {
 
         clientTwo.call('com.test.add', [2, 3])
           .then((res: any) => {
@@ -85,8 +85,9 @@ describe('wamp', function() {
 
 });
 
-let createClient = (callback: Function) => {
-  let connection = new Connection({
+// tslint:disable-next-line:max-line-length
+const createClient = (callback: (session: any, closeSession: () => void) => void) => {
+  const connection = new Connection({
     realm: 'com.test.autobahn',
     url: 'ws://127.0.0.1:8000/',
   });
@@ -96,7 +97,7 @@ let createClient = (callback: Function) => {
   connection.open();
 };
 
-let onFinish = (done: Function, close: Function) => {
+const onFinish = (done: () => void, close: () => void) => {
   if (finished.ack &&
     finished.event &&
     finished.invocation &&

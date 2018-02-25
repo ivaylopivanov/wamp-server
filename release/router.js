@@ -1,7 +1,10 @@
 "use strict";
-const handlers_1 = require('./handlers');
-const protocols_1 = require('./protocols');
-const Debug = require('debug');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Debug = require("debug");
+const handlers_1 = require("./handlers");
+const protocols_1 = require("./protocols");
 const DEBUG = Debug('wamp:router');
 /**
  *
@@ -61,7 +64,4 @@ class Router {
     }
   }
 }
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 exports.default = Router;

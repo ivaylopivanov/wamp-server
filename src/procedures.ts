@@ -1,16 +1,16 @@
-import {
-  ProcedureInterface
-} from './interfaces';
 import * as Debug from 'debug';
+import {
+  ProcedureInterface,
+} from './interfaces';
 
 const DEBUG = Debug('wamp:procedure');
-let procedures = {};
+const procedures = {};
 
 class Procedures {
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    */
@@ -19,8 +19,8 @@ class Procedures {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} uri
@@ -35,16 +35,16 @@ class Procedures {
     DEBUG('procedure id: %s', procedureID);
     DEBUG('session id: %s', sessionID);
     const PROCEDURE: ProcedureInterface = {
-      procedureID: procedureID,
-      sessionID: sessionID,
-      uri: uri,
+      procedureID,
+      sessionID,
+      uri,
     };
     procedures[realm][uri] = PROCEDURE;
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} uri
@@ -56,8 +56,8 @@ class Procedures {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {number} id
@@ -76,8 +76,8 @@ class Procedures {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} uri
@@ -88,8 +88,8 @@ class Procedures {
   }
 
   /**
-   * 
-   * 
+   *
+   *
    * @static
    * @param {string} realm
    * @param {string} uri
