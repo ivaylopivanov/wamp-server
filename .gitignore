@@ -3,6 +3,7 @@ example/*.js
 coverage/
 
 .vscode
+.idea
 
 typings/
 

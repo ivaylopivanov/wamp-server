@@ -61,7 +61,7 @@ export interface EventEmitter {
    * @param {Function} listener
    * @returns {this}
    */
-  on(event: string, listener: (message: string) => void): this;
+  on(event: string, listener: (message: any) => void): this;
   /**
    *
    *

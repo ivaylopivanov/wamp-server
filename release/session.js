@@ -218,6 +218,13 @@ class Session {
         this.close();
       }
     });
+    this.socket.on('error', (err) => {
+      const MSG = err.message;
+      DEBUG('socket error "%s" for ID: %s and IP: %s', MSG, this.id, this.ip);
+      if (MSG.indexOf('ECONNRESET') > -1) {
+        this.close();
+      }
+    });
   }
 }
 exports.default = Session;
