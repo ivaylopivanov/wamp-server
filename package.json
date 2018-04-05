@@ -34,7 +34,7 @@
     "node": ">= 6.0.0"
   },
   "devDependencies": {
-    "@types/autobahn": "0.9.38",
+    "@types/autobahn": "0.9.39",
     "@types/chai": "4.1.2",
     "@types/debug": "0.0.30",
     "@types/mocha": "2.2.48",
