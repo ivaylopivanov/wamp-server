@@ -14,7 +14,7 @@ const finished: any = {
 
 describe('wamp', function() {
 
-  this.timeout(500);
+  this.timeout(3000);
 
   beforeEach(() => {
     server = new Server({
