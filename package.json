@@ -37,7 +37,7 @@
     "@types/autobahn": "0.9.39",
     "@types/chai": "4.1.6",
     "@types/debug": "0.0.30",
-    "@types/mocha": "5.2.5",
+    "@types/mocha": "5.2.7",
     "@types/ws": "6.0.1",
     "autobahn": "18.3.2",
     "chai": "4.2.0",
