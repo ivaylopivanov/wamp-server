@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/autobahn": "0.9.39",
-    "@types/chai": "4.1.6",
+    "@types/chai": "4.2.1",
     "@types/debug": "0.0.30",
     "@types/mocha": "5.2.5",
     "@types/ws": "6.0.1",
